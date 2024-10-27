@@ -2,11 +2,10 @@ import logging
 from functools import wraps
 from traceback import format_exc as err
 
-from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
-from pyrogram.types import Message
-
 from WinxMusic import app
 from WinxMusic.misc import SUDOERS
+from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
+from pyrogram.types import Message
 
 
 async def member_permissions(chat_id: int, user_id: int):
@@ -35,12 +34,12 @@ async def member_permissions(chat_id: int, user_id: int):
     return perms
 
 
-async def authorised(func, subFunc2, client, message, *args, **kwargs):
-    chatID = message.chat.id
+async def authorised(func, sub_func2, client, message, *args, **kwargs):
+    chat_id = message.chat.id
     try:
         await func(client, message, *args, **kwargs)
     except ChatWriteForbidden:
-        await app.leave_chat(chatID)
+        await app.leave_chat(chat_id)
     except Exception as e:
         logging.exception(e)
         try:
@@ -49,28 +48,29 @@ async def authorised(func, subFunc2, client, message, *args, **kwargs):
             await message.reply_text(str(e))
         e = err()
         print(str(e))
-    return subFunc2
+    return sub_func2
 
 
 async def unauthorised(
-    message: Message, permission, subFunc2, bot_lacking_permission=False
+        message: Message, permission, sub_func2, bot_lacking_permission=False
 ):
-    chatID = message.chat.id
+    chat_id = message.chat.id
     if bot_lacking_permission:
         text = (
-            "I don't have the required permission to perform this action."
-            + f"\n**Permission:** __{permission}__"
+            "𝗗𝗲𝘀𝗰𝘂𝗹𝗽𝗲! 😕\n"
+            "𝗡𝗮̃𝗼 𝘁𝗲𝗻𝗵𝗼 𝗽𝗲𝗿𝗺𝗶𝘀𝘀𝗮̃𝗼 𝗽𝗮𝗿𝗮 𝗿𝗲𝗮𝗹𝗶𝘇𝗮𝗿 𝗲𝘀𝘁𝗮 𝗮𝗰̧𝗮̃𝗼. 🚫\n"
+            f"**𝗣𝗲𝗿𝗺𝗶𝘀𝘀𝗮̃𝗼 𝗻𝗲𝗰𝗲𝘀𝘀𝗮́𝗿𝗶𝗮:** __{permission}__"
         )
     else:
         text = (
-            "You don't have the required permission to perform this action."
-            + f"\n**Permission:** __{permission}__"
+            "𝗩𝗼𝗰𝗲̂ 𝗻𝗮̃𝗼 𝘁𝗲𝗺 𝗽𝗲𝗿𝗺𝗶𝘀𝘀𝗮̃𝗼 𝗽𝗮𝗿𝗮 𝗿𝗲𝗮𝗹𝗶𝘇𝗮𝗿 𝗲𝘀𝘁𝗮 𝗮𝗰̧𝗮̃𝗼. ❌\n"
+            f"**𝗣𝗲𝗿𝗺𝗶𝘀𝘀𝗮̃𝗼 𝗻𝗲𝗰𝗲𝘀𝘀𝗮́𝗿𝗶𝗮:** __{permission}__"
         )
     try:
         await message.reply_text(text)
     except ChatWriteForbidden:
-        await app.leave_chat(chatID)
-    return subFunc2
+        await app.leave_chat(chat_id)
+    return sub_func2
 
 
 async def bot_permissions(chat_id: int):
@@ -78,8 +78,8 @@ async def bot_permissions(chat_id: int):
     return await member_permissions(chat_id, app.id)
 
 
-def adminsOnly(permission):
-    def subFunc(func):
+def admins_only(permission: str):
+    def sub_func(func):
         @wraps(func)
         async def subFunc2(client, message: Message, *args, **kwargs):
             chatID = message.chat.id
@@ -105,12 +105,12 @@ def adminsOnly(permission):
                 return await unauthorised(message, permission, subFunc2)
 
             # For admins and sudo users
-            userID = message.from_user.id
-            permissions = await member_permissions(chatID, userID)
-            if userID not in SUDOERS and permission not in permissions:
+            user_id = message.from_user.id
+            permissions = await member_permissions(chatID, user_id)
+            if user_id not in SUDOERS and permission not in permissions:
                 return await unauthorised(message, permission, subFunc2)
             return await authorised(func, subFunc2, client, message, *args, **kwargs)
 
         return subFunc2
 
-    return subFunc
+    return sub_func

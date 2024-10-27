@@ -7,7 +7,7 @@ from pyrogram.enums import ChatMembersFilter
 from pyrogram.errors.exceptions.bad_request_400 import UserAlreadyParticipant
 from pyrogram.types import ChatJoinRequest, Message, CallbackQuery
 
-from utils.permissions import adminsOnly, member_permissions
+from utils.permissions import admins_only, member_permissions
 
 approvaldb = mongodb.autoapprove
 
@@ -21,7 +21,7 @@ def smallcap(text):
 
 
 @app.on_message(filters.command("autoapprove") & filters.group)
-@adminsOnly("can_change_info")
+@admins_only("can_change_info")
 async def approval_command(_client: Client, message: Message):
     chat_id = message.chat.id
     chat = await approvaldb.find_one({"chat_id": chat_id})
@@ -103,7 +103,7 @@ async def approval_cb(_client: Client, callback_query: CallbackQuery):
 
 
 @app.on_message(filters.command("approveall") & filters.group)
-@adminsOnly("can_restrict_members")
+@admins_only("can_restrict_members")
 async def clear_pending_command(_client: Client, message: Message):
     a = await message.reply_text("⏳ **𝗔𝗴𝘂𝗮𝗿𝗱𝗲...**")
     chat_id = message.chat.id
@@ -117,7 +117,7 @@ async def clear_pending_command(_client: Client, message: Message):
 
 
 @app.on_message(filters.command("clearpending") & filters.group)
-@adminsOnly("can_restrict_members")
+@admins_only("can_restrict_members")
 async def clear_pending_command(_client: Client, message: Message):
     chat_id = message.chat.id
     result = await approvaldb.update_one(

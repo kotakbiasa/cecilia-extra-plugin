@@ -24,7 +24,7 @@ from utils import (
     set_greetings_off,
 )
 from utils.error import capture_err
-from utils.permissions import adminsOnly
+from utils.permissions import admins_only
 from .notes import extract_urls
 
 
@@ -116,7 +116,7 @@ async def send_left_message(chat: Chat, user_id: int, delete: bool = False):
 
 
 @app.on_message(filters.command("setgoodbye") & ~filters.private)
-@adminsOnly("can_change_info")
+@admins_only("can_change_info")
 async def set_goodbye_func(_, message: Message):
     usage = "𝗩𝗼𝗰𝗲̂ 𝗽𝗿𝗲𝗰𝗶𝘀𝗮 𝗿𝗲𝘀𝗽𝗼𝗻𝗱𝗲𝗿 𝗮 𝘂𝗺 𝘁𝗲𝘅𝘁𝗼, 𝗴𝗶𝗳 𝗼𝘂 𝗳𝗼𝘁𝗼 𝗽𝗮𝗿𝗮 𝗱𝗲𝗳𝗶𝗻𝗶-𝗹𝗼 𝗰𝗼𝗺𝗼 𝗺𝗲𝗻𝘀𝗮𝗴𝗲𝗺 𝗱𝗲 𝗱𝗲𝘀𝗽𝗲𝗱𝗶𝗱𝗮.\n\n𝗢𝗯𝘀: 𝗲́ 𝗻𝗲𝗰𝗲𝘀𝘀𝗮́𝗿𝗶𝗼 𝗱𝗲𝗳𝗶𝗻𝗶𝗿 𝘂𝗺𝗮 𝗹𝗲𝗴𝗲𝗻𝗱𝗮 𝗽𝗮𝗿𝗮 𝗴𝗶𝗳 𝗲 𝗳𝗼𝘁𝗼."
     key = InlineKeyboardMarkup(
@@ -179,7 +179,7 @@ async def set_goodbye_func(_, message: Message):
 
 
 @app.on_message(filters.command(["delgoodbye", "deletegoodbye"]) & ~filters.private)
-@adminsOnly("can_change_info")
+@admins_only("can_change_info")
 async def del_goodbye_func(_, message: Message):
     chat_id = message.chat.id
     await del_goodbye(chat_id)
@@ -187,7 +187,7 @@ async def del_goodbye_func(_, message: Message):
 
 
 @app.on_message(filters.command("goodbye") & ~filters.private)
-@adminsOnly("can_change_info")
+@admins_only("can_change_info")
 async def goodbye(client: Client, message: Message):
     command = message.text.split()
 

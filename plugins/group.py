@@ -2,11 +2,11 @@ from WinxMusic import app
 from pyrogram import enums, filters
 from pyrogram.types import Message
 
-from utils.permissions import adminsOnly
+from utils.permissions import admins_only
 
 
 @app.on_message(filters.command("removephoto"))
-@adminsOnly("can_change_info")
+@admins_only("can_change_info")
 async def delete_chat_photo(_, message: Message):
     chat_id = message.chat.id
     user_id = message.from_user.id
@@ -29,7 +29,7 @@ async def delete_chat_photo(_, message: Message):
 
 
 @app.on_message(filters.command("setphoto"))
-@adminsOnly("can_change_info")
+@admins_only("can_change_info")
 async def set_chat_photo(_, message: Message):
     reply = message.reply_to_message
     chat_id = message.chat.id
@@ -59,7 +59,7 @@ async def set_chat_photo(_, message: Message):
 
 
 @app.on_message(filters.command("settitle"))
-@adminsOnly("can_change_info")
+@admins_only("can_change_info")
 async def set_group_title(_, message: Message):
     reply = message.reply_to_message
     chat_id = message.chat.id
@@ -104,7 +104,7 @@ async def set_group_title(_, message: Message):
 
 
 @app.on_message(filters.command(["setdiscription", "setdesc"]))
-@adminsOnly("can_change_info")
+@admins_only("can_change_info")
 async def set_group_description(_, message: Message):
     reply = message.reply_to_message
     chat_id = message.chat.id

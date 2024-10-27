@@ -22,7 +22,7 @@ from utils import (
     set_welcome,
 )
 from utils.error import capture_err
-from utils.permissions import adminsOnly
+from utils.permissions import admins_only
 from .notes import extract_urls
 
 
@@ -118,7 +118,7 @@ async def send_welcome_message(chat: Chat, user_id: int, delete: bool = False):
 
 
 @app.on_message(filters.command("setwelcome") & ~filters.private)
-@adminsOnly("can_change_info")
+@admins_only("can_change_info")
 async def set_welcome_func(_, message):
     usage = "𝗩𝗼𝗰𝗲̂ 𝗽𝗿𝗲𝗰𝗶𝘀𝗮 𝗿𝗲𝘀𝗽𝗼𝗻𝗱𝗲𝗿 𝗮 𝘂𝗺𝗮 𝗺𝗲𝗻𝘀𝗮𝗴𝗲𝗺 𝗰𝗼𝗺 𝘁𝗲𝘅𝘁𝗼, 𝗴𝗶𝗳 𝗼𝘂 𝗳𝗼𝘁𝗼 𝗽𝗮𝗿𝗮 𝘀𝗲𝘁𝗮́-𝗹𝗮 𝗰𝗼𝗺𝗼 𝗯𝗼𝗮𝘀-𝘃𝗶𝗻𝗱𝗮𝘀.\n\n𝗡𝗼𝘁𝗮: 𝗰𝗮𝗽𝘁𝗶𝗼𝗻 𝗲́ 𝗿𝗲𝗾𝘂𝗶𝘀𝗶𝘁𝗮 𝗽𝗮𝗿𝗮 𝗴𝗶𝗳 𝗲 𝗳𝗼𝘁𝗼."
     key = InlineKeyboardMarkup(
@@ -181,7 +181,7 @@ async def set_welcome_func(_, message):
 
 
 @app.on_message(filters.command(["delwelcome", "deletewelcome"]) & ~filters.private)
-@adminsOnly("can_change_info")
+@admins_only("can_change_info")
 async def del_welcome_func(_, message):
     chat_id = message.chat.id
     await del_welcome(chat_id)
@@ -189,7 +189,7 @@ async def del_welcome_func(_, message):
 
 
 @app.on_message(filters.command("getwelcome") & ~filters.private)
-@adminsOnly("can_change_info")
+@admins_only("can_change_info")
 async def get_welcome_func(_, message):
     chat = message.chat
     welcome, raw_text, file_id = await get_welcome(chat.id)

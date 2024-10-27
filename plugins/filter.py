@@ -19,12 +19,12 @@ from pyrogram.types import (
 )
 
 from utils.error import capture_err
-from utils.permissions import adminsOnly, member_permissions
+from utils.permissions import admins_only, member_permissions
 from .notes import extract_urls
 
 
 @app.on_message(filters.command("filter") & ~filters.private & ~BANNED_USERS)
-@adminsOnly("can_change_info")
+@admins_only("can_change_info")
 async def save_filters(_, message: Message):
     try:
         if len(message.command) < 2:
@@ -113,7 +113,7 @@ async def get_filterss(_, message: Message):
 
 
 @app.on_message(filters.command("stopall") & ~filters.private & ~BANNED_USERS)
-@adminsOnly("can_change_info")
+@admins_only("can_change_info")
 async def stop_all(_, message: Message):
     _filters = await get_filters_names(message.chat.id)
     if not _filters:

@@ -21,7 +21,7 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery
 
 from utils.error import capture_err
-from utils.permissions import adminsOnly, member_permissions
+from utils.permissions import admins_only, member_permissions
 
 
 def extract_urls(reply_markup: InlineKeyboardMarkup):
@@ -51,7 +51,7 @@ async def eor(message: Message, **kwargs: dict):
 
 
 @app.on_message(filters.command("save") & filters.group & ~BANNED_USERS)
-@adminsOnly("can_change_info")
+@admins_only("can_change_info")
 async def save_note(_, message: Message):
     try:
         if len(message.command) < 2:
@@ -322,7 +322,7 @@ async def get_reply(message: Message, type: str, file_id: str, data: str, key_b:
 
 
 @app.on_message(filters.command("delete") & filters.group & ~BANNED_USERS)
-@adminsOnly("can_change_info")
+@admins_only("can_change_info")
 async def del_note(_, message):
     if len(message.command) < 2:
         return await eor(message, text="**𝗨𝘀𝗼 🗑️**\n__/delete [𝗡𝗢𝗠𝗘_𝗡𝗢𝗧𝗔]__")
@@ -340,7 +340,7 @@ async def del_note(_, message):
 
 
 @app.on_message(filters.command("deleteall") & filters.group & ~BANNED_USERS)
-@adminsOnly("can_change_info")
+@admins_only("can_change_info")
 async def delete_all(_, message):
     _notes = await get_note_names(message.chat.id)
     if not _notes:
