@@ -1,5 +1,5 @@
 from WinxMusic import app
-from WinxMusic.utils import Yukkibin
+from WinxMusic.utils import winxbin
 from WinxMusic.utils.database import get_assistant, get_lang
 from pyrogram import filters
 from pyrogram.enums import ChatType
@@ -45,7 +45,7 @@ async def vc_members(client, message):
         if len(TEXT) < 4000:
             await msg.edit(TEXT or "⚠️ 𝗡𝗲𝗻𝗵𝘂𝗺 𝗺𝗲𝗺𝗯𝗿𝗼 𝗲𝗻𝗰𝗼𝗻𝘁𝗿𝗮𝗱𝗼.")
         else:
-            link = await Yukkibin(TEXT)
+            link = await winxbin(TEXT)
             await msg.edit(
                 f"📄 𝗟𝗶𝗻𝗸 𝗽𝗮𝗿𝗮 𝗹𝗶𝘀𝘁𝗮: {link}",
                 disable_web_page_preview=True,
