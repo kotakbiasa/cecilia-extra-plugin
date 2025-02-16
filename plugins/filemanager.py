@@ -5,8 +5,8 @@ import time
 from inspect import getfullargspec
 from os.path import exists, isdir
 
-from WinxMusic import app
-from WinxMusic.misc import SUDOERS
+from Cecilia import app
+from Cecilia.misc import SUDOERS
 from pyrogram import filters
 from pyrogram.types import Message
 

@@ -1,5 +1,5 @@
 import requests
-from WinxMusic import app
+from Cecilia import app
 from config import BANNED_USERS
 from pyrogram import filters, Client
 from pyrogram.types import (

@@ -1,8 +1,8 @@
 import asyncio
 import logging
 
-from WinxMusic import app
-from WinxMusic.utils.database import (
+from Cecilia import app
+from Cecilia.utils.database import (
     get_assistant,
 )
 from config import BANNED_USERS

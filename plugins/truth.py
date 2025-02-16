@@ -1,5 +1,5 @@
 import requests
-from WinxMusic import app
+from Cecilia import app
 from pyrogram import filters
 
 truth_api_url = "https://api.truthordarebot.xyz/v1/truth"

@@ -1,6 +1,6 @@
 import requests
 from MukeshAPI import api
-from WinxMusic import app
+from Cecilia import app
 from pyrogram import filters, Client
 from pyrogram.enums import ChatAction
 from pyrogram.types import Message

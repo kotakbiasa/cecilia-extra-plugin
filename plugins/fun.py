@@ -1,5 +1,5 @@
 import requests
-from WinxMusic import app
+from Cecilia import app
 from pyrogram import filters, Client
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 

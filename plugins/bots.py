@@ -1,6 +1,6 @@
 import asyncio
 
-from WinxMusic import app
+from Cecilia import app
 from pyrogram import enums, filters, Client
 from pyrogram.errors import FloodWait
 from pyrogram.types import Message

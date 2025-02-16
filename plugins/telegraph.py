@@ -1,7 +1,7 @@
 import os
 
 from TheApi import api
-from WinxMusic import app
+from Cecilia import app
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 

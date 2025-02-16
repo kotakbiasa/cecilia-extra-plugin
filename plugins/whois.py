@@ -1,4 +1,4 @@
-from WinxMusic import app
+from Cecilia import app
 from pyrogram import filters
 from pyrogram.errors import PeerIdInvalid
 from pyrogram.types import Message, User

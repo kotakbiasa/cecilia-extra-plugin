@@ -1,6 +1,6 @@
 from SafoneAPI import SafoneAPI
 from TheApi import api
-from WinxMusic import app
+from Cecilia import app
 from config import LOG_GROUP_ID
 from pyrogram import filters
 from pyrogram.types import Message

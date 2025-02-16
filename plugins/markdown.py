@@ -1,5 +1,5 @@
-from WinxMusic import app
-from WinxMusic.utils.functions import MARKDOWN
+from Cecilia import app
+from Cecilia.utils.functions import MARKDOWN
 from pyrogram.enums import ChatType, ParseMode
 from pyrogram.filters import command
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message

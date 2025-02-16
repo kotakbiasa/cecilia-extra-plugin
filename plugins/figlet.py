@@ -2,7 +2,7 @@ import asyncio
 from random import choice
 
 import pyfiglet
-from WinxMusic import app
+from Cecilia import app
 from pyrogram import filters
 from pyrogram.errors import FloodWait
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup

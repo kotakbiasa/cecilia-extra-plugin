@@ -3,16 +3,16 @@ from contextlib import suppress
 from string import ascii_lowercase
 from typing import Dict, Union
 
-from WinxMusic import app
-from WinxMusic.core.mongo import mongodb
-from WinxMusic.misc import SUDOERS
-from WinxMusic.utils.database import save_filter
-from WinxMusic.utils.functions import (
+from Cecilia import app
+from Cecilia.core.mongo import mongodb
+from Cecilia.misc import SUDOERS
+from Cecilia.utils.database import save_filter
+from Cecilia.utils.functions import (
     extract_user,
     extract_user_and_reason,
     time_converter,
 )
-from WinxMusic.utils.keyboard import ikb
+from Cecilia.utils.keyboard import ikb
 from config import BANNED_USERS
 from pyrogram import filters
 from pyrogram.enums import ChatMembersFilter, ChatMemberStatus, ChatType

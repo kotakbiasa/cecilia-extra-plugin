@@ -1,5 +1,5 @@
 import requests
-from WinxMusic import app
+from Cecilia import app
 from pyrogram import filters
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry

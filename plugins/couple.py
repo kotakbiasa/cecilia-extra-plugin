@@ -6,7 +6,7 @@ import pytz
 import requests
 from PIL import Image, ImageDraw
 from TheApi import api
-from WinxMusic import app
+from Cecilia import app
 from pyrogram import filters
 from pyrogram.enums import ChatType
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message

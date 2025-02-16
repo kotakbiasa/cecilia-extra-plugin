@@ -1,6 +1,6 @@
 import re
 
-from WinxMusic import app
+from Cecilia import app
 from pymongo import MongoClient
 from pyrogram import filters, Client
 from pyrogram.types import Message

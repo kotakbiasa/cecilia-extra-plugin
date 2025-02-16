@@ -1,6 +1,6 @@
 import io
 
-from WinxMusic import app
+from Cecilia import app
 from gtts import gTTS
 from pyrogram import filters
 

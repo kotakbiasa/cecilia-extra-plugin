@@ -1,6 +1,6 @@
-from WinxMusic import app
-from WinxMusic.utils import winxbin
-from WinxMusic.utils.database import get_assistant, get_lang
+from Cecilia import app
+from Cecilia.utils import winxbin
+from Cecilia.utils.database import get_assistant, get_lang
 from pyrogram import filters
 from pyrogram.enums import ChatType
 from strings import get_string

@@ -1,7 +1,7 @@
-from WinxMusic import app
-from WinxMusic.core.mongo import mongodb
-from WinxMusic.misc import SUDOERS
-from WinxMusic.utils.keyboard import ikb
+from Cecilia import app
+from Cecilia.core.mongo import mongodb
+from Cecilia.misc import SUDOERS
+from Cecilia.utils.keyboard import ikb
 from pyrogram import filters, Client
 from pyrogram.enums import ChatMembersFilter
 from pyrogram.errors.exceptions.bad_request_400 import UserAlreadyParticipant

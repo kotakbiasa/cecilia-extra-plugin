@@ -1,6 +1,6 @@
 import re
 
-from WinxMusic import app
+from Cecilia import app
 from pyrogram import filters
 from youtubesearchpython.__future__ import VideosSearch
 

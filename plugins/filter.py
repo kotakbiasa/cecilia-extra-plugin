@@ -1,16 +1,16 @@
 import re
 
-from WinxMusic import app
-from WinxMusic.utils.database import (
+from Cecilia import app
+from Cecilia.utils.database import (
     deleteall_filters,
     get_filters_names,
     save_filter,
 )
-from WinxMusic.utils.functions import (
+from Cecilia.utils.functions import (
     check_format,
     get_data_and_name,
 )
-from WinxMusic.utils.keyboard import ikb
+from Cecilia.utils.keyboard import ikb
 from config import BANNED_USERS
 from pyrogram import filters
 from pyrogram.types import (

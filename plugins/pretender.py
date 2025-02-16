@@ -1,6 +1,6 @@
 from typing import Dict, Union
 
-from WinxMusic import app
+from Cecilia import app
 from config import MONGO_DB_URI
 from motor.motor_asyncio import AsyncIOMotorClient as MongoCli
 from pyrogram import filters

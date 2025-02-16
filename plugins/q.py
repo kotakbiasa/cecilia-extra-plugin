@@ -1,6 +1,6 @@
 from io import BytesIO
 
-from WinxMusic import app
+from Cecilia import app
 from httpx import AsyncClient, Timeout
 from pyrogram import filters
 from pyrogram.types import Message

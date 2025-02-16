@@ -1,8 +1,8 @@
 import os
 
-from WinxMusic import app
-from WinxMusic.misc import SUDOERS
-from WinxMusic.utils.database import is_gbanned_user
+from Cecilia import app
+from Cecilia.misc import SUDOERS
+from Cecilia.utils.database import is_gbanned_user
 from pyrogram import enums, filters
 from pyrogram.types import Message
 

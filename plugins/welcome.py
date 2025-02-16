@@ -1,11 +1,11 @@
 import datetime
 from re import findall
 
-from WinxMusic import app
-from WinxMusic.misc import SUDOERS
-from WinxMusic.utils.database import is_gbanned_user
-from WinxMusic.utils.functions import check_format, extract_text_and_keyb
-from WinxMusic.utils.keyboard import ikb
+from Cecilia import app
+from Cecilia.misc import SUDOERS
+from Cecilia.utils.database import is_gbanned_user
+from Cecilia.utils.functions import check_format, extract_text_and_keyb
+from Cecilia.utils.keyboard import ikb
 from pyrogram import filters
 from pyrogram.enums import ChatMemberStatus as CMS
 from pyrogram.errors.exceptions.bad_request_400 import ChatAdminRequired

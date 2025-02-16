@@ -2,20 +2,20 @@ import datetime
 from inspect import getfullargspec
 from re import findall
 
-from WinxMusic import app
-from WinxMusic.utils.database import (
+from Cecilia import app
+from Cecilia.utils.database import (
     delete_note,
     deleteall_notes,
     get_note,
     get_note_names,
     save_note,
 )
-from WinxMusic.utils.functions import (
+from Cecilia.utils.functions import (
     check_format,
     extract_text_and_keyb,
     get_data_and_name,
 )
-from WinxMusic.utils.keyboard import ikb
+from Cecilia.utils.keyboard import ikb
 from config import BANNED_USERS
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery

@@ -1,7 +1,7 @@
 import logging
 
 from SafoneAPI import SafoneAPI
-from WinxMusic import app
+from Cecilia import app
 from googlesearch import search
 from pyrogram import filters
 from pyrogram.types import Message

@@ -1,4 +1,4 @@
-from WinxMusic.core.mongo import mongodb
+from Cecilia.core.mongo import mongodb
 
 greetingsdb = mongodb.greetings
 
